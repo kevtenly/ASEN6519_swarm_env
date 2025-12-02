@@ -1,0 +1,15 @@
+/home/kelvo/ros2_swarm_ws/install/swarm_sim/share/ament_index/resource_index/package_run_dependencies/swarm_sim
+/home/kelvo/ros2_swarm_ws/install/swarm_sim/share/ament_index/resource_index/parent_prefix_path/swarm_sim
+/home/kelvo/ros2_swarm_ws/install/swarm_sim/share/swarm_sim/environment/ament_prefix_path.sh
+/home/kelvo/ros2_swarm_ws/install/swarm_sim/share/swarm_sim/environment/ament_prefix_path.dsv
+/home/kelvo/ros2_swarm_ws/install/swarm_sim/share/swarm_sim/environment/path.sh
+/home/kelvo/ros2_swarm_ws/install/swarm_sim/share/swarm_sim/environment/path.dsv
+/home/kelvo/ros2_swarm_ws/install/swarm_sim/share/swarm_sim/local_setup.bash
+/home/kelvo/ros2_swarm_ws/install/swarm_sim/share/swarm_sim/local_setup.sh
+/home/kelvo/ros2_swarm_ws/install/swarm_sim/share/swarm_sim/local_setup.zsh
+/home/kelvo/ros2_swarm_ws/install/swarm_sim/share/swarm_sim/local_setup.dsv
+/home/kelvo/ros2_swarm_ws/install/swarm_sim/share/swarm_sim/package.dsv
+/home/kelvo/ros2_swarm_ws/install/swarm_sim/share/ament_index/resource_index/packages/swarm_sim
+/home/kelvo/ros2_swarm_ws/install/swarm_sim/share/swarm_sim/cmake/swarm_simConfig.cmake
+/home/kelvo/ros2_swarm_ws/install/swarm_sim/share/swarm_sim/cmake/swarm_simConfig-version.cmake
+/home/kelvo/ros2_swarm_ws/install/swarm_sim/share/swarm_sim/package.xml

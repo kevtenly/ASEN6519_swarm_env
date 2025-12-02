@@ -1,0 +1,24 @@
+[0.855s] Invoking command in '/home/kelvo/ros2_swarm_ws/src/swarm_control': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/kelvo/ros2_swarm_ws/build/swarm_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/kelvo/ros2_swarm_ws/install/swarm_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/swarm_control build --build-base /home/kelvo/ros2_swarm_ws/build/swarm_control/build install --record /home/kelvo/ros2_swarm_ws/build/swarm_control/install.log --single-version-externally-managed install_data
+[1.144s] running egg_info
+[1.163s] writing ../../build/swarm_control/swarm_control.egg-info/PKG-INFO
+[1.163s] writing dependency_links to ../../build/swarm_control/swarm_control.egg-info/dependency_links.txt
+[1.164s] writing entry points to ../../build/swarm_control/swarm_control.egg-info/entry_points.txt
+[1.164s] writing requirements to ../../build/swarm_control/swarm_control.egg-info/requires.txt
+[1.164s] writing top-level names to ../../build/swarm_control/swarm_control.egg-info/top_level.txt
+[1.202s] reading manifest file '../../build/swarm_control/swarm_control.egg-info/SOURCES.txt'
+[1.203s] writing manifest file '../../build/swarm_control/swarm_control.egg-info/SOURCES.txt'
+[1.203s] running build
+[1.204s] running build_py
+[1.204s] copying swarm_control/swarm_controller.py -> /home/kelvo/ros2_swarm_ws/build/swarm_control/build/lib/swarm_control
+[1.204s] running install
+[1.210s] running install_lib
+[1.229s] copying /home/kelvo/ros2_swarm_ws/build/swarm_control/build/lib/swarm_control/swarm_controller.py -> /home/kelvo/ros2_swarm_ws/install/swarm_control/lib/python3.12/site-packages/swarm_control
+[1.229s] byte-compiling /home/kelvo/ros2_swarm_ws/install/swarm_control/lib/python3.12/site-packages/swarm_control/swarm_controller.py to swarm_controller.cpython-312.pyc
+[1.231s] running install_data
+[1.231s] running install_egg_info
+[1.252s] removing '/home/kelvo/ros2_swarm_ws/install/swarm_control/lib/python3.12/site-packages/swarm_control-0.0.0-py3.12.egg-info' (and everything under it)
+[1.252s] Copying ../../build/swarm_control/swarm_control.egg-info to /home/kelvo/ros2_swarm_ws/install/swarm_control/lib/python3.12/site-packages/swarm_control-0.0.0-py3.12.egg-info
+[1.253s] running install_scripts
+[1.387s] Installing swarm_controller script to /home/kelvo/ros2_swarm_ws/install/swarm_control/lib/swarm_control
+[1.388s] writing list of installed files to '/home/kelvo/ros2_swarm_ws/build/swarm_control/install.log'
+[1.421s] Invoked command in '/home/kelvo/ros2_swarm_ws/src/swarm_control' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/kelvo/ros2_swarm_ws/build/swarm_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/kelvo/ros2_swarm_ws/install/swarm_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/swarm_control build --build-base /home/kelvo/ros2_swarm_ws/build/swarm_control/build install --record /home/kelvo/ros2_swarm_ws/build/swarm_control/install.log --single-version-externally-managed install_data

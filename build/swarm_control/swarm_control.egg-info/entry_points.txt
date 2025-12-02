@@ -1,0 +1,2 @@
+[console_scripts]
+swarm_controller = swarm_control.swarm_controller:main
