@@ -1,0 +1,64 @@
+# UAV_1
+- ros_topic_name: /uav_1/cmd_vel
+  gz_topic_name: /UAV_1/gazebo/command/twist
+  ros_type_name: geometry_msgs/msg/Twist
+  gz_type_name: gz.msgs.Twist
+  direction: ROS_TO_GZ
+
+- ros_topic_name: /uav_1/odom
+  gz_topic_name: /model/UAV_1/odometry
+  ros_type_name: nav_msgs/msg/Odometry
+  gz_type_name: gz.msgs.Odometry
+  direction: GZ_TO_ROS
+
+# UAV_2
+- ros_topic_name: /uav_2/cmd_vel
+  gz_topic_name: /UAV_2/gazebo/command/twist
+  ros_type_name: geometry_msgs/msg/Twist
+  gz_type_name: gz.msgs.Twist
+  direction: ROS_TO_GZ
+
+- ros_topic_name: /uav_2/odom
+  gz_topic_name: /model/UAV_2/odometry
+  ros_type_name: nav_msgs/msg/Odometry
+  gz_type_name: gz.msgs.Odometry
+  direction: GZ_TO_ROS
+
+# UAV_3
+- ros_topic_name: /uav_3/cmd_vel
+  gz_topic_name: /UAV_3/gazebo/command/twist
+  ros_type_name: geometry_msgs/msg/Twist
+  gz_type_name: gz.msgs.Twist
+  direction: ROS_TO_GZ
+
+- ros_topic_name: /uav_3/odom
+  gz_topic_name: /model/UAV_3/odometry
+  ros_type_name: nav_msgs/msg/Odometry
+  gz_type_name: gz.msgs.Odometry
+  direction: GZ_TO_ROS
+
+# UAV_4
+- ros_topic_name: /uav_4/cmd_vel
+  gz_topic_name: /UAV_4/gazebo/command/twist
+  ros_type_name: geometry_msgs/msg/Twist
+  gz_type_name: gz.msgs.Twist
+  direction: ROS_TO_GZ
+
+- ros_topic_name: /uav_4/odom
+  gz_topic_name: /model/UAV_4/odometry
+  ros_type_name: nav_msgs/msg/Odometry
+  gz_type_name: gz.msgs.Odometry
+  direction: GZ_TO_ROS
+
+# UAV_5
+- ros_topic_name: /uav_5/cmd_vel
+  gz_topic_name: /UAV_5/gazebo/command/twist
+  ros_type_name: geometry_msgs/msg/Twist
+  gz_type_name: gz.msgs.Twist
+  direction: ROS_TO_GZ
+
+- ros_topic_name: /uav_5/odom
+  gz_topic_name: /model/UAV_5/odometry
+  ros_type_name: nav_msgs/msg/Odometry
+  gz_type_name: gz.msgs.Odometry
+  direction: GZ_TO_ROS
