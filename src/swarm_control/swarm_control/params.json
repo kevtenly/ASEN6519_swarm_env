@@ -1,0 +1,11 @@
+{
+    "W_ALIGNMENT": 0.1,
+    "W_COHESION": 0.15,
+    "W_SEPARATION": 0.1,
+    "WAYPOINTS": [
+        [
+            50.0,
+            50.0
+        ]
+    ]
+}

@@ -1,0 +1,1893 @@
+<sdf version='1.10'>
+  <world name='multicopter'>
+    <physics name='4ms' type='ignored'>
+      <max_step_size>0.0040000000000000001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <scene>
+      <ambient>0.400000006 0.400000006 0.400000006 1</ambient>
+      <background>0.699999988 0.699999988 0.699999988 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name='ground_plane'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.800000012 0.800000012 0.800000012 1</ambient>
+            <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+            <specular>0.800000012 0.800000012 0.800000012 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='UAV_1'>
+      <pose>1.2366796442785978e-06 0.00023018063704226201 1.1100175820023688 -1.1587802340204746e-06 -5.5381576264190857e-10 -1.2684963797974253e-07</pose>
+      <link name='X3/base_link'>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1.5</mass>
+          <inertia>
+            <ixx>0.034756299999999997</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.070000000000000007</iyy>
+            <iyz>0</iyz>
+            <izz>0.097699999999999995</izz>
+          </inertia>
+        </inertial>
+        <collision name='X3/base_link_inertia_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.46999999999999997 0.46999999999999997 0.11</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='X3/base_link_inertia_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x3 uav/4/files/meshes/x3.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <link name='X3/rotor_0'>
+        <pose>0.13000000033607625 -0.21999990813411527 0.022999747848165608 -1.4279313210997372e-06 4.3693232738606222e-07 -2.8449414478028063</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.0050000000000000001</mass>
+          <inertia>
+            <ixx>9.7499999999999998e-07</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>4.1704099999999999e-05</iyy>
+            <iyz>0</iyz>
+            <izz>4.2604100000000001e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='X3/rotor_0_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.0050000000000000001</length>
+              <radius>0.10000000000000001</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='X3/rotor_0_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x3 uav/4/files/meshes/propeller_ccw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>true</gravity>
+        <velocity_decay/>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='X3/rotor_0_joint' type='revolute'>
+        <child>X3/rotor_0</child>
+        <parent>X3/base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+        <pose>0 0 0 0 0 0</pose>
+      </joint>
+      <link name='X3/rotor_1'>
+        <pose>-0.12999999966491113 0.20000009186480544 0.023000374914267319 -1.4279192820903221e-06 4.3697166993673924e-07 -2.8449138955557589</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.0050000000000000001</mass>
+          <inertia>
+            <ixx>9.7499999999999998e-07</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>4.1704099999999999e-05</iyy>
+            <iyz>0</iyz>
+            <izz>4.2604100000000001e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='X3/rotor_1_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.0050000000000000001</length>
+              <radius>0.10000000000000001</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='X3/rotor_1_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x3 uav/4/files/meshes/propeller_ccw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>true</gravity>
+        <velocity_decay/>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='X3/rotor_1_joint' type='revolute'>
+        <child>X3/rotor_1</child>
+        <parent>X3/base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+        <pose>0 0 0 0 0 0</pose>
+      </joint>
+      <link name='X3/rotor_2'>
+        <pose>0.13000000033504186 0.22000009186539418 0.023000404893187998 -1.4281829988048097e-06 -4.3610897539209562e-07 2.8449346822146637</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.0050000000000000001</mass>
+          <inertia>
+            <ixx>9.7499999999999998e-07</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>4.1704099999999999e-05</iyy>
+            <iyz>0</iyz>
+            <izz>4.2604100000000001e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='X3/rotor_2_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.0050000000000000001</length>
+              <radius>0.10000000000000001</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='X3/rotor_2_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x3 uav/4/files/meshes/propeller_cw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>true</gravity>
+        <velocity_decay/>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='X3/rotor_2_joint' type='revolute'>
+        <child>X3/rotor_2</child>
+        <parent>X3/base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+        <pose>0 0 0 0 0 0</pose>
+      </joint>
+      <link name='X3/rotor_3'>
+        <pose>-0.12999999966397072 -0.19999990813474861 0.022999777600610782 -1.4281768630356162e-06 -4.3612906849049686e-07 2.8449206131901903</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.0050000000000000001</mass>
+          <inertia>
+            <ixx>9.7499999999999998e-07</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>4.1704099999999999e-05</iyy>
+            <iyz>0</iyz>
+            <izz>4.2604100000000001e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='X3/rotor_3_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.0050000000000000001</length>
+              <radius>0.10000000000000001</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='X3/rotor_3_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.10000000000000001 0.10000000000000001 0.10000000000000001</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x3 uav/4/files/meshes/propeller_cw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>true</gravity>
+        <velocity_decay/>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='X3/rotor_3_joint' type='revolute'>
+        <child>X3/rotor_3</child>
+        <parent>X3/base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+        <pose>0 0 0 0 0 0</pose>
+      </joint>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_1</robotNamespace>
+        <jointName>X3/rotor_0_joint</jointName>
+        <linkName>X3/rotor_0</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>0</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/0</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_1</robotNamespace>
+        <jointName>X3/rotor_1_joint</jointName>
+        <linkName>X3/rotor_1</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>1</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/1</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_1</robotNamespace>
+        <jointName>X3/rotor_2_joint</jointName>
+        <linkName>X3/rotor_2</linkName>
+        <turningDirection>cw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>2</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/2</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_1</robotNamespace>
+        <jointName>X3/rotor_3_joint</jointName>
+        <linkName>X3/rotor_3</linkName>
+        <turningDirection>cw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>3</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/3</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterVelocityControl' filename='gz-sim-multicopter-control-system'>
+        <robotNamespace>UAV_1</robotNamespace>
+        <commandSubTopic>gazebo/command/twist</commandSubTopic>
+        <enableSubTopic>enable</enableSubTopic>
+        <comLinkName>X3/base_link</comLinkName>
+        <velocityGain>2.7 2.7 2.7</velocityGain>
+        <attitudeGain>2 3 0.15</attitudeGain>
+        <angularRateGain>0.4 0.52 0.18</angularRateGain>
+        <maximumLinearAcceleration>2 2 2</maximumLinearAcceleration>
+        <rotorConfiguration>
+          <rotor>
+            <jointName>X3/rotor_0_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>1</direction>
+          </rotor>
+          <rotor>
+            <jointName>X3/rotor_1_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>1</direction>
+          </rotor>
+          <rotor>
+            <jointName>X3/rotor_2_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>-1</direction>
+          </rotor>
+          <rotor>
+            <jointName>X3/rotor_3_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>-1</direction>
+          </rotor>
+        </rotorConfiguration>
+      </plugin>
+      <plugin name='gz::sim::systems::OdometryPublisher' filename='gz-sim-odometry-publisher-system'>
+        <dimensions>3</dimensions>
+      </plugin>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='UAV_2'>
+      <pose>-2.1143899999999998e-12 3 0.125 1.01593e-16 -1.92406e-11 8.0280900000000001e-19</pose>
+      <link name='base_link'>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>3.4199999999999999</mass>
+          <inertia>
+            <ixx>0.074999999999999997</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.074999999999999997</iyy>
+            <iyz>0</iyz>
+            <izz>0.14891599999999999</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_link_inertia_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.29999999999999999 0.29999999999999999 0.25</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='base_link_inertia_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x4 uav config 1/15/files/meshes/x4.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='marker_visual_1'>
+          <pose>-0.10000000000000001 0 0.076999999999999999 0 -0.10000000000000001 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x4 uav config 1/15/files/meshes/led.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='marker_visual_2'>
+          <pose>-0.089999999999999997 0.058999999999999997 0.058999999999999997 -0.78539699999999957 -4.163336342344337e-17 0.19999999999999993</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x4 uav config 1/15/files/meshes/led.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='marker_visual_3'>
+          <pose>-0.089999999999999997 -0.058999999999999997 0.058999999999999997 0.78539699999999957 -4.163336342344337e-17 -0.19999999999999993</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x4 uav config 1/15/files/meshes/led.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='downward_flashlight_visual'>
+          <pose>-0.043704 0 0.10291400000000001 -0.19999999999999996 0.00015799999999998601 -1.5700199999999997</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x4 uav config 1/15/files/meshes/spotlight.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='left_flashlight_visual'>
+          <pose>-0.071984999999999993 0.090826000000000004 0.066101999999999994 0.059999999999999984 -4.799999999999826e-05 -1.27</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x4 uav config 1/15/files/meshes/spotlight.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='right_flashlight_visual'>
+          <pose>-0.071984999999999993 -0.090826000000000004 0.066101999999999994 0.059999999999999998 -4.8000000000005199e-05 -1.8699999999999999</pose>
+          <geometry>
+            <mesh>
+              <scale>0.01 0.01 0.01</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x4 uav config 1/15/files/meshes/spotlight.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <light name='right_light_source' type='spot'>
+          <pose>0 -0.11 0.070000000000000007 3.1315900000000001 -1.5107900000000019 2.8415899999999996</pose>
+          <cast_shadows>true</cast_shadows>
+          <intensity>1</intensity>
+          <direction>0 0 -1</direction>
+          <diffuse>0.800000012 0.800000012 0.5 1</diffuse>
+          <specular>0.800000012 0.800000012 0.5 1</specular>
+          <attenuation>
+            <range>15</range>
+            <linear>0</linear>
+            <constant>0.10000000149011612</constant>
+            <quadratic>0.0099999997764825821</quadratic>
+          </attenuation>
+          <spot>
+            <inner_angle>1</inner_angle>
+            <outer_angle>1.1000000238418579</outer_angle>
+            <falloff>1</falloff>
+          </spot>
+        </light>
+        <light name='downward_flashlight_source' type='spot'>
+          <pose>0.029999999999999999 0 0.089999999999999997 -0.0099999999999999985 -1.3708 4.3659353551314806e-18</pose>
+          <cast_shadows>true</cast_shadows>
+          <intensity>1</intensity>
+          <direction>0 0 -1</direction>
+          <diffuse>0.800000012 0.800000012 0.5 1</diffuse>
+          <specular>0.800000012 0.800000012 0.5 1</specular>
+          <attenuation>
+            <range>15</range>
+            <linear>0</linear>
+            <constant>0.10000000149011612</constant>
+            <quadratic>0.0099999997764825821</quadratic>
+          </attenuation>
+          <spot>
+            <inner_angle>1</inner_angle>
+            <outer_angle>1.1000000238418579</outer_angle>
+            <falloff>1</falloff>
+          </spot>
+        </light>
+        <light name='left_flashlight_source' type='spot'>
+          <pose>0 0.11 0.070000000000000007 3.1315900000000001 -1.5107900000000074 -2.8415899999999996</pose>
+          <cast_shadows>true</cast_shadows>
+          <intensity>1</intensity>
+          <direction>0 0 -1</direction>
+          <diffuse>0.800000012 0.800000012 0.5 1</diffuse>
+          <specular>0.800000012 0.800000012 0.5 1</specular>
+          <attenuation>
+            <range>15</range>
+            <linear>0</linear>
+            <constant>0.10000000149011612</constant>
+            <quadratic>0.0099999997764825821</quadratic>
+          </attenuation>
+          <spot>
+            <inner_angle>1</inner_angle>
+            <outer_angle>1.1000000238418579</outer_angle>
+            <falloff>1</falloff>
+          </spot>
+        </light>
+        <sensor name='imu_sensor' type='imu'>
+          <pose>0 0 0 0 0 0</pose>
+          <topic>__default__</topic>
+          <update_rate>250</update_rate>
+          <enable_metrics>false</enable_metrics>
+          <imu>
+            <orientation_reference_frame>
+              <localization>CUSTOM</localization>
+              <custom_rpy>0 0 0</custom_rpy>
+              <grav_dir_x>1 0 0</grav_dir_x>
+            </orientation_reference_frame>
+            <angular_velocity>
+              <x>
+                <noise type='gaussian'>
+                  <mean>0</mean>
+                  <stddev>0.0089999999999999993</stddev>
+                  <bias_mean>0.00075000000000000002</bias_mean>
+                  <bias_stddev>0.0050000000000000001</bias_stddev>
+                  <dynamic_bias_stddev>2.0000000000000002e-05</dynamic_bias_stddev>
+                  <dynamic_bias_correlation_time>400</dynamic_bias_correlation_time>
+                  <precision>0.00025000000000000001</precision>
+                </noise>
+              </x>
+              <y>
+                <noise type='gaussian'>
+                  <mean>0</mean>
+                  <stddev>0.0089999999999999993</stddev>
+                  <bias_mean>0.00075000000000000002</bias_mean>
+                  <bias_stddev>0.0050000000000000001</bias_stddev>
+                  <dynamic_bias_stddev>2.0000000000000002e-05</dynamic_bias_stddev>
+                  <dynamic_bias_correlation_time>400</dynamic_bias_correlation_time>
+                  <precision>0.00025000000000000001</precision>
+                </noise>
+              </y>
+              <z>
+                <noise type='gaussian'>
+                  <mean>0</mean>
+                  <stddev>0.0089999999999999993</stddev>
+                  <bias_mean>0.00075000000000000002</bias_mean>
+                  <bias_stddev>0.0050000000000000001</bias_stddev>
+                  <dynamic_bias_stddev>2.0000000000000002e-05</dynamic_bias_stddev>
+                  <dynamic_bias_correlation_time>400</dynamic_bias_correlation_time>
+                  <precision>0.00025000000000000001</precision>
+                </noise>
+              </z>
+            </angular_velocity>
+            <linear_acceleration>
+              <x>
+                <noise type='gaussian'>
+                  <mean>0</mean>
+                  <stddev>0.021000000000000001</stddev>
+                  <bias_mean>0.050000000000000003</bias_mean>
+                  <bias_stddev>0.0074999999999999997</bias_stddev>
+                  <dynamic_bias_stddev>0.00037500000000000001</dynamic_bias_stddev>
+                  <dynamic_bias_correlation_time>175</dynamic_bias_correlation_time>
+                  <precision>0.0050000000000000001</precision>
+                </noise>
+              </x>
+              <y>
+                <noise type='gaussian'>
+                  <mean>0</mean>
+                  <stddev>0.021000000000000001</stddev>
+                  <bias_mean>0.050000000000000003</bias_mean>
+                  <bias_stddev>0.0074999999999999997</bias_stddev>
+                  <dynamic_bias_stddev>0.00037500000000000001</dynamic_bias_stddev>
+                  <dynamic_bias_correlation_time>175</dynamic_bias_correlation_time>
+                  <precision>0.0050000000000000001</precision>
+                </noise>
+              </y>
+              <z>
+                <noise type='gaussian'>
+                  <mean>0</mean>
+                  <stddev>0.021000000000000001</stddev>
+                  <bias_mean>0.050000000000000003</bias_mean>
+                  <bias_stddev>0.0074999999999999997</bias_stddev>
+                  <dynamic_bias_stddev>0.00037500000000000001</dynamic_bias_stddev>
+                  <dynamic_bias_correlation_time>175</dynamic_bias_correlation_time>
+                  <precision>0.0050000000000000001</precision>
+                </noise>
+              </z>
+            </linear_acceleration>
+            <enable_orientation>true</enable_orientation>
+          </imu>
+        </sensor>
+        <sensor name='air_pressure' type='air_pressure'>
+          <pose>0 0 0 0 0 0</pose>
+          <topic>__default__</topic>
+          <update_rate>20</update_rate>
+          <enable_metrics>false</enable_metrics>
+          <air_pressure>
+            <reference_altitude>0</reference_altitude>
+            <pressure>
+              <noise type='none'>
+                <mean>0</mean>
+                <stddev>0</stddev>
+                <bias_mean>0</bias_mean>
+                <bias_stddev>0</bias_stddev>
+                <dynamic_bias_stddev>0</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>0</dynamic_bias_correlation_time>
+                <precision>0</precision>
+              </noise>
+            </pressure>
+          </air_pressure>
+        </sensor>
+        <sensor name='magnetometer' type='magnetometer'>
+          <pose>0 0 0 0 0 0</pose>
+          <topic>__default__</topic>
+          <update_rate>20</update_rate>
+          <enable_metrics>false</enable_metrics>
+          <magnetometer>
+            <x>
+              <noise type='gaussian'>
+                <mean>8.0000000000000002e-08</mean>
+                <stddev>0</stddev>
+                <bias_mean>3.9999999999999998e-07</bias_mean>
+                <bias_stddev>0</bias_stddev>
+                <dynamic_bias_stddev>0</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>0</dynamic_bias_correlation_time>
+                <precision>0</precision>
+              </noise>
+            </x>
+            <y>
+              <noise type='gaussian'>
+                <mean>8.0000000000000002e-08</mean>
+                <stddev>0</stddev>
+                <bias_mean>3.9999999999999998e-07</bias_mean>
+                <bias_stddev>0</bias_stddev>
+                <dynamic_bias_stddev>0</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>0</dynamic_bias_correlation_time>
+                <precision>0</precision>
+              </noise>
+            </y>
+            <z>
+              <noise type='gaussian'>
+                <mean>8.0000000000000002e-08</mean>
+                <stddev>0</stddev>
+                <bias_mean>3.9999999999999998e-07</bias_mean>
+                <bias_stddev>0</bias_stddev>
+                <dynamic_bias_stddev>0</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>0</dynamic_bias_correlation_time>
+                <precision>0</precision>
+              </noise>
+            </z>
+          </magnetometer>
+        </sensor>
+        <visual name='camera_mount_base_visual'>
+          <pose>0.050000000000000003 0 -0.029999999999999999 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.059999999999999998 0.059999999999999998 0.0060000000000000001</size>
+            </box>
+          </geometry>
+        </visual>
+        <visual name='camera_mount_arm_visual'>
+          <pose>0.080000000000000002 0 -0.040000000000000001 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.0050000000000000001</radius>
+              <length>0.080000000000000002</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <visual name='camera_mount_arm2_visual'>
+          <pose>0.080000000000000002 0 -0.080000000000000002 0 1.5700000000006846 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.01</radius>
+              <length>0.025000000000000001</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <visual name='camera_visual'>
+          <pose>0.10000000000000001 0 -0.080000000000000002 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.025000000000000001 0.025000000000000001</size>
+            </box>
+          </geometry>
+        </visual>
+        <sensor name='camera_front' type='camera'>
+          <pose>0.10000000000000001 0 -0.080000000000000002 0 0 0</pose>
+          <topic>__default__</topic>
+          <update_rate>20</update_rate>
+          <enable_metrics>false</enable_metrics>
+          <camera>
+            <pose>0 0 0 0 0 0</pose>
+            <horizontal_fov>2</horizontal_fov>
+            <image>
+              <width>1280</width>
+              <height>960</height>
+              <format>RGB_INT8</format>
+              <anti_aliasing>4</anti_aliasing>
+            </image>
+            <camera_info_topic>__default__</camera_info_topic>
+            <trigger_topic></trigger_topic>
+            <triggered>false</triggered>
+            <clip>
+              <near>0.02</near>
+              <far>300</far>
+            </clip>
+            <save enabled='false'>
+              <path>__default__</path>
+            </save>
+            <visibility_mask>4294967295</visibility_mask>
+            <noise>
+              <type>none</type>
+              <mean>0</mean>
+              <stddev>0</stddev>
+            </noise>
+            <distortion>
+              <k1>0</k1>
+              <k2>0</k2>
+              <k3>0</k3>
+              <p1>0</p1>
+              <p2>0</p2>
+              <center>0.5 0.5</center>
+            </distortion>
+            <lens>
+              <type>stereographic</type>
+              <scale_to_hfov>true</scale_to_hfov>
+              <cutoff_angle>1.5707963267948966</cutoff_angle>
+              <env_texture_size>256</env_texture_size>
+            </lens>
+            <optical_frame_id></optical_frame_id>
+          </camera>
+        </sensor>
+        <enable_wind>false</enable_wind>
+      </link>
+      <link name='rotor_0'>
+        <pose>0.247 0.15060000000000001 0.028000000000000001 0.087267000000000039 6.9388939039072284e-18 0.52359900000000004</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.0050000000000000001</mass>
+          <inertia>
+            <ixx>9.7499999999999998e-07</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>8.1354500000000002e-05</iyy>
+            <iyz>0</iyz>
+            <izz>8.2254499999999997e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_0_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.0050000000000000001</length>
+              <radius>0.13969999999999999</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='rotor_0_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x4 uav config 1/15/files/meshes/neo11_propeller_ccw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 0 0 1</diffuse>
+            <script>
+              <name>Gazebo/Red</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+          <cast_shadows>false</cast_shadows>
+        </visual>
+        <gravity>true</gravity>
+        <velocity_decay/>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='rotor_0_joint' type='revolute'>
+        <child>rotor_0</child>
+        <parent>base_link</parent>
+        <axis>
+          <xyz>1.3548818325950784e-07 5.749657079959225e-07 0.99999999999982558</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+        <pose>-5.5511199999999995e-17 -4.5102799999999997e-17 3.4694499999999997e-18 0 -3.4694499999999997e-18 0</pose>
+      </joint>
+      <link name='rotor_1'>
+        <pose>-0.00067000000000000002 0.28928999999999999 0.028000000000000001 -9.4545499999999991e-19 -0.087266999999999997 1.08478e-17</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.0050000000000000001</mass>
+          <inertia>
+            <ixx>9.7499999999999998e-07</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>8.1354500000000002e-05</iyy>
+            <iyz>0</iyz>
+            <izz>8.2254499999999997e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_1_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.0050000000000000001</length>
+              <radius>0.13969999999999999</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='rotor_1_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x4 uav config 1/15/files/meshes/neo11_propeller_cw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0 0 1 1</diffuse>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+          <cast_shadows>false</cast_shadows>
+        </visual>
+        <gravity>true</gravity>
+        <velocity_decay/>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='rotor_1_joint' type='revolute'>
+        <child>rotor_1</child>
+        <parent>base_link</parent>
+        <axis>
+          <xyz>3.0743997701202647e-07 0 0.99999999999995282</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+        <pose>2.1684e-19 0 3.4694499999999997e-18 0 0 0</pose>
+      </joint>
+      <link name='rotor_2'>
+        <pose>-0.25009999999999999 0.1454 0.028000000000000001 0.087266999999999997 -1.3877787807814457e-17 2.6179899999999998</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.0050000000000000001</mass>
+          <inertia>
+            <ixx>9.7499999999999998e-07</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>8.1354500000000002e-05</iyy>
+            <iyz>0</iyz>
+            <izz>8.2254499999999997e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_2_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.0050000000000000001</length>
+              <radius>0.13969999999999999</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='rotor_2_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x4 uav config 1/15/files/meshes/neo11_propeller_ccw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0 0 1 1</diffuse>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+          <cast_shadows>false</cast_shadows>
+        </visual>
+        <gravity>true</gravity>
+        <velocity_decay/>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='rotor_2_joint' type='revolute'>
+        <child>rotor_2</child>
+        <parent>base_link</parent>
+        <axis>
+          <xyz>1.8294301218357847e-07 5.749657943990295e-07 0.99999999999981803</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+        <pose>1.6653299999999999e-16 -1.3877799999999999e-17 3.4694499999999997e-18 0 0 0</pose>
+      </joint>
+      <link name='rotor_3'>
+        <pose>-0.25009999999999999 -0.1454 0.028000000000000001 -0.087267000000000011 -2.0816681711721685e-17 -2.6179899999999998</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.0050000000000000001</mass>
+          <inertia>
+            <ixx>9.7499999999999998e-07</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>8.1354500000000002e-05</iyy>
+            <iyz>0</iyz>
+            <izz>8.2254499999999997e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_3_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.0050000000000000001</length>
+              <radius>0.13969999999999999</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='rotor_3_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x4 uav config 1/15/files/meshes/neo11_propeller_cw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0 0 1 1</diffuse>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+          <cast_shadows>false</cast_shadows>
+        </visual>
+        <gravity>true</gravity>
+        <velocity_decay/>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='rotor_3_joint' type='revolute'>
+        <child>rotor_3</child>
+        <parent>base_link</parent>
+        <axis>
+          <xyz>1.8294301218357847e-07 -5.749657943990295e-07 0.99999999999981803</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+        <pose>1.6653299999999999e-16 1.3877799999999999e-17 3.4694499999999997e-18 0 0 0</pose>
+      </joint>
+      <link name='rotor_4'>
+        <pose>-0.00067000000000000002 -0.28928999999999999 0.028000000000000001 2.3551507897701076e-18 0.087267000000000025 -3.1415899999999999</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.0050000000000000001</mass>
+          <inertia>
+            <ixx>9.7499999999999998e-07</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>8.1354500000000002e-05</iyy>
+            <iyz>0</iyz>
+            <izz>8.2254499999999997e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_4_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.0050000000000000001</length>
+              <radius>0.13969999999999999</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='rotor_4_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x4 uav config 1/15/files/meshes/neo11_propeller_ccw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0 0 1 1</diffuse>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+          <cast_shadows>false</cast_shadows>
+        </visual>
+        <gravity>true</gravity>
+        <velocity_decay/>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='rotor_4_joint' type='revolute'>
+        <child>rotor_4</child>
+        <parent>base_link</parent>
+        <axis>
+          <xyz>-3.0744028273188562e-07 -2.3127619728550544e-07 0.99999999999992606</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+        <pose>-4.3368099999999998e-19 1.11022e-16 3.4694499999999997e-18 -1.3234899999999999e-23 -2.8025999999999999e-45 -4.2351600000000001e-22</pose>
+      </joint>
+      <link name='rotor_5'>
+        <pose>0.247 -0.15060000000000001 0.028000000000000001 -0.087267000000000025 3.4694469519536142e-18 -0.52359900000000004</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.0050000000000000001</mass>
+          <inertia>
+            <ixx>9.7499999999999998e-07</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>8.1354500000000002e-05</iyy>
+            <iyz>0</iyz>
+            <izz>8.2254499999999997e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_5_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.0050000000000000001</length>
+              <radius>0.13969999999999999</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='rotor_5_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/x4 uav config 1/15/files/meshes/neo11_propeller_cw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 0 0 1</diffuse>
+            <script>
+              <name>Gazebo/Red</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+          <cast_shadows>false</cast_shadows>
+        </visual>
+        <gravity>true</gravity>
+        <velocity_decay/>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='rotor_5_joint' type='revolute'>
+        <child>rotor_5</child>
+        <parent>base_link</parent>
+        <axis>
+          <xyz>1.3548818325950784e-07 -5.749657079959225e-07 0.99999999999982558</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+        <pose>-5.5511199999999995e-17 4.5102799999999997e-17 3.4694499999999997e-18 0 -3.4694499999999997e-18 0</pose>
+      </joint>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_2</robotNamespace>
+        <jointName>rotor_0_joint</jointName>
+        <linkName>rotor_0</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0182</timeConstantUp>
+        <timeConstantDown>0.0182</timeConstantDown>
+        <maxRotVelocity>1000.0</maxRotVelocity>
+        <motorConstant>1.269e-05</motorConstant>
+        <momentConstant>0.016754</momentConstant>
+        <commandSubTopic>command/motor_speed</commandSubTopic>
+        <actuator_number>0</actuator_number>
+        <rotorDragCoefficient>2.0673e-04</rotorDragCoefficient>
+        <rotorDragCoefficient>0</rotorDragCoefficient>
+        <rollingMomentCoefficient>0</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/0</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>2</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_2</robotNamespace>
+        <jointName>rotor_1_joint</jointName>
+        <linkName>rotor_1</linkName>
+        <turningDirection>cw</turningDirection>
+        <timeConstantUp>0.0182</timeConstantUp>
+        <timeConstantDown>0.0182</timeConstantDown>
+        <maxRotVelocity>1000.0</maxRotVelocity>
+        <motorConstant>1.269e-05</motorConstant>
+        <momentConstant>0.016754</momentConstant>
+        <commandSubTopic>command/motor_speed</commandSubTopic>
+        <actuator_number>1</actuator_number>
+        <rotorDragCoefficient>2.0673e-04</rotorDragCoefficient>
+        <rotorDragCoefficient>0</rotorDragCoefficient>
+        <rollingMomentCoefficient>0</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/1</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>2</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_2</robotNamespace>
+        <jointName>rotor_2_joint</jointName>
+        <linkName>rotor_2</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0182</timeConstantUp>
+        <timeConstantDown>0.0182</timeConstantDown>
+        <maxRotVelocity>1000.0</maxRotVelocity>
+        <motorConstant>1.269e-05</motorConstant>
+        <momentConstant>0.016754</momentConstant>
+        <commandSubTopic>command/motor_speed</commandSubTopic>
+        <actuator_number>2</actuator_number>
+        <rotorDragCoefficient>2.0673e-04</rotorDragCoefficient>
+        <rotorDragCoefficient>0</rotorDragCoefficient>
+        <rollingMomentCoefficient>0</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/2</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>2</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_2</robotNamespace>
+        <jointName>rotor_3_joint</jointName>
+        <linkName>rotor_3</linkName>
+        <turningDirection>cw</turningDirection>
+        <timeConstantUp>0.0182</timeConstantUp>
+        <timeConstantDown>0.0182</timeConstantDown>
+        <maxRotVelocity>1000.0</maxRotVelocity>
+        <motorConstant>1.269e-05</motorConstant>
+        <momentConstant>0.016754</momentConstant>
+        <commandSubTopic>command/motor_speed</commandSubTopic>
+        <actuator_number>3</actuator_number>
+        <rotorDragCoefficient>2.0673e-04</rotorDragCoefficient>
+        <rotorDragCoefficient>0</rotorDragCoefficient>
+        <rollingMomentCoefficient>0</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/3</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>2</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_2</robotNamespace>
+        <jointName>rotor_4_joint</jointName>
+        <linkName>rotor_4</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0182</timeConstantUp>
+        <timeConstantDown>0.0182</timeConstantDown>
+        <maxRotVelocity>1000.0</maxRotVelocity>
+        <motorConstant>1.269e-05</motorConstant>
+        <momentConstant>0.016754</momentConstant>
+        <commandSubTopic>command/motor_speed</commandSubTopic>
+        <actuator_number>4</actuator_number>
+        <rotorDragCoefficient>2.0673e-04</rotorDragCoefficient>
+        <rotorDragCoefficient>0</rotorDragCoefficient>
+        <rollingMomentCoefficient>0</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/4</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>2</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_2</robotNamespace>
+        <jointName>rotor_5_joint</jointName>
+        <linkName>rotor_5</linkName>
+        <turningDirection>cw</turningDirection>
+        <timeConstantUp>0.0182</timeConstantUp>
+        <timeConstantDown>0.0182</timeConstantDown>
+        <maxRotVelocity>1000.0</maxRotVelocity>
+        <motorConstant>1.269e-05</motorConstant>
+        <momentConstant>0.016754</momentConstant>
+        <commandSubTopic>command/motor_speed</commandSubTopic>
+        <actuator_number>5</actuator_number>
+        <rotorDragCoefficient>2.0673e-04</rotorDragCoefficient>
+        <rotorDragCoefficient>0</rotorDragCoefficient>
+        <rollingMomentCoefficient>0</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/5</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>2</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterVelocityControl' filename='gz-sim-multicopter-control-system'>
+        <robotNamespace>UAV_2</robotNamespace>
+        <commandSubTopic>gazebo/command/twist</commandSubTopic>
+        <enableSubTopic>enable</enableSubTopic>
+        <comLinkName>base_link</comLinkName>
+        <velocityGain>6 6 10</velocityGain>
+        <attitudeGain>4 4 2</attitudeGain>
+        <angularRateGain>0.7 0.7 0.7</angularRateGain>
+        <maximumLinearAcceleration>1 1 2</maximumLinearAcceleration>
+        <maximumLinearVelocity>5 5 5</maximumLinearVelocity>
+        <maximumAngularVelocity>3 3 3</maximumAngularVelocity>
+        <linearVelocityNoiseMean>0 0 0</linearVelocityNoiseMean>
+        <linearVelocityNoiseStdDev>0.1105 0.1261 0.0947</linearVelocityNoiseStdDev>
+        <angularVelocityNoiseMean>0 0 0</angularVelocityNoiseMean>
+        <angularVelocityNoiseStdDev>0.004 0.004 0.004</angularVelocityNoiseStdDev>
+        <rotorConfiguration>
+          <rotor>
+            <jointName>rotor_0_joint</jointName>
+            <forceConstant>1.269e-05</forceConstant>
+            <momentConstant>1.6754e-2</momentConstant>
+            <direction>1</direction>
+          </rotor>
+          <rotor>
+            <jointName>rotor_1_joint</jointName>
+            <forceConstant>1.269e-05</forceConstant>
+            <momentConstant>1.6754e-2</momentConstant>
+            <direction>-1</direction>
+          </rotor>
+          <rotor>
+            <jointName>rotor_2_joint</jointName>
+            <forceConstant>1.269e-05</forceConstant>
+            <momentConstant>1.6754e-2</momentConstant>
+            <direction>1</direction>
+          </rotor>
+          <rotor>
+            <jointName>rotor_3_joint</jointName>
+            <forceConstant>1.269e-05</forceConstant>
+            <momentConstant>1.6754e-2</momentConstant>
+            <direction>-1</direction>
+          </rotor>
+          <rotor>
+            <jointName>rotor_4_joint</jointName>
+            <forceConstant>1.269e-05</forceConstant>
+            <momentConstant>1.6754e-2</momentConstant>
+            <direction>1</direction>
+          </rotor>
+          <rotor>
+            <jointName>rotor_5_joint</jointName>
+            <forceConstant>1.269e-05</forceConstant>
+            <momentConstant>1.6754e-2</momentConstant>
+            <direction>-1</direction>
+          </rotor>
+        </rotorConfiguration>
+      </plugin>
+      <plugin name='gz::sim::systems::OdometryPublisher' filename='gz-sim-odometry-publisher-system'>
+        <dimensions>3</dimensions>
+      </plugin>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/X3 UAV</uri>
+      <name>UAV_3</name>
+      <pose>-1.6347556598636945 -0.25306836838239688 0.054999053759016543 1.2891812983388122e-18 -6.2176562539498064e-18 1.7899371509510904e-18</pose>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_3</robotNamespace>
+        <jointName>X3/rotor_0_joint</jointName>
+        <linkName>X3/rotor_0</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>0</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/0</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_3</robotNamespace>
+        <jointName>X3/rotor_1_joint</jointName>
+        <linkName>X3/rotor_1</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>1</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/1</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_3</robotNamespace>
+        <jointName>X3/rotor_2_joint</jointName>
+        <linkName>X3/rotor_2</linkName>
+        <turningDirection>cw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>2</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/2</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_3</robotNamespace>
+        <jointName>X3/rotor_3_joint</jointName>
+        <linkName>X3/rotor_3</linkName>
+        <turningDirection>cw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>3</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/3</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterVelocityControl' filename='gz-sim-multicopter-control-system'>
+        <robotNamespace>UAV_3</robotNamespace>
+        <commandSubTopic>gazebo/command/twist</commandSubTopic>
+        <enableSubTopic>enable</enableSubTopic>
+        <comLinkName>X3/base_link</comLinkName>
+        <velocityGain>2.7 2.7 2.7</velocityGain>
+        <attitudeGain>2 3 0.15</attitudeGain>
+        <angularRateGain>0.4 0.52 0.18</angularRateGain>
+        <maximumLinearAcceleration>2 2 2</maximumLinearAcceleration>
+        <rotorConfiguration>
+          <rotor>
+            <jointName>X3/rotor_0_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>1</direction>
+          </rotor>
+          <rotor>
+            <jointName>X3/rotor_1_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>1</direction>
+          </rotor>
+          <rotor>
+            <jointName>X3/rotor_2_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>-1</direction>
+          </rotor>
+          <rotor>
+            <jointName>X3/rotor_3_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>-1</direction>
+          </rotor>
+        </rotorConfiguration>
+      </plugin>
+      <plugin name='gz::sim::systems::OdometryPublisher'
+          filename='gz-sim-odometry-publisher-system'>
+       <dimensions>3</dimensions>
+      </plugin>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/X3 UAV</uri>
+      <name>UAV_4</name>
+      <pose>-1.7154392894532879 2.843979831803932 0.054999053759016557 3.2433518868414938e-20 -1.4754113493018248e-17 1.3189988066522364e-19</pose>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_4</robotNamespace>
+        <jointName>X3/rotor_0_joint</jointName>
+        <linkName>X3/rotor_0</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>0</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/0</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_4</robotNamespace>
+        <jointName>X3/rotor_1_joint</jointName>
+        <linkName>X3/rotor_1</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>1</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/1</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_4</robotNamespace>
+        <jointName>X3/rotor_2_joint</jointName>
+        <linkName>X3/rotor_2</linkName>
+        <turningDirection>cw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>2</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/2</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_4</robotNamespace>
+        <jointName>X3/rotor_3_joint</jointName>
+        <linkName>X3/rotor_3</linkName>
+        <turningDirection>cw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>3</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/3</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterVelocityControl' filename='gz-sim-multicopter-control-system'>
+        <robotNamespace>UAV_4</robotNamespace>
+        <commandSubTopic>gazebo/command/twist</commandSubTopic>
+        <enableSubTopic>enable</enableSubTopic>
+        <comLinkName>X3/base_link</comLinkName>
+        <velocityGain>2.7 2.7 2.7</velocityGain>
+        <attitudeGain>2 3 0.15</attitudeGain>
+        <angularRateGain>0.4 0.52 0.18</angularRateGain>
+        <maximumLinearAcceleration>2 2 2</maximumLinearAcceleration>
+        <rotorConfiguration>
+          <rotor>
+            <jointName>X3/rotor_0_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>1</direction>
+          </rotor>
+          <rotor>
+            <jointName>X3/rotor_1_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>1</direction>
+          </rotor>
+          <rotor>
+            <jointName>X3/rotor_2_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>-1</direction>
+          </rotor>
+          <rotor>
+            <jointName>X3/rotor_3_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>-1</direction>
+          </rotor>
+        </rotorConfiguration>
+      </plugin>
+      <plugin name='gz::sim::systems::OdometryPublisher'
+          filename='gz-sim-odometry-publisher-system'>
+       <dimensions>3</dimensions>
+      </plugin>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/X3 UAV</uri>
+      <name>UAV_5</name>
+      <pose>-1.1154392894532879 2.143979831803932 0.054999053759016557 3.2433518868414938e-20 -1.4754113493018248e-17 1.3189988066522364e-19</pose>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_5</robotNamespace>
+        <jointName>X3/rotor_0_joint</jointName>
+        <linkName>X3/rotor_0</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>0</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/0</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_5</robotNamespace>
+        <jointName>X3/rotor_1_joint</jointName>
+        <linkName>X3/rotor_1</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>1</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/1</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_5</robotNamespace>
+        <jointName>X3/rotor_2_joint</jointName>
+        <linkName>X3/rotor_2</linkName>
+        <turningDirection>cw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>2</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/2</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterMotorModel' filename='gz-sim-multicopter-motor-model-system'>
+        <robotNamespace>UAV_5</robotNamespace>
+        <jointName>X3/rotor_3_joint</jointName>
+        <linkName>X3/rotor_3</linkName>
+        <turningDirection>cw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>800.0</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <actuator_number>3</actuator_number>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/3</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+      <plugin name='gz::sim::systems::MulticopterVelocityControl' filename='gz-sim-multicopter-control-system'>
+        <robotNamespace>UAV_5</robotNamespace>
+        <commandSubTopic>gazebo/command/twist</commandSubTopic>
+        <enableSubTopic>enable</enableSubTopic>
+        <comLinkName>X3/base_link</comLinkName>
+        <velocityGain>2.7 2.7 2.7</velocityGain>
+        <attitudeGain>2 3 0.15</attitudeGain>
+        <angularRateGain>0.4 0.52 0.18</angularRateGain>
+        <maximumLinearAcceleration>2 2 2</maximumLinearAcceleration>
+        <rotorConfiguration>
+          <rotor>
+            <jointName>X3/rotor_0_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>1</direction>
+          </rotor>
+          <rotor>
+            <jointName>X3/rotor_1_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>1</direction>
+          </rotor>
+          <rotor>
+            <jointName>X3/rotor_2_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>-1</direction>
+          </rotor>
+          <rotor>
+            <jointName>X3/rotor_3_joint</jointName>
+            <forceConstant>8.54858e-06</forceConstant>
+            <momentConstant>0.016</momentConstant>
+            <direction>-1</direction>
+          </rotor>
+        </rotorConfiguration>
+      </plugin>
+      <plugin name='gz::sim::systems::OdometryPublisher'
+          filename='gz-sim-odometry-publisher-system'>
+       <dimensions>3</dimensions>
+      </plugin>
+    </include>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.10000000000000001 -0.90000000000000002</direction>
+      <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+      <specular>0.200000003 0.200000003 0.200000003 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.0099999997764825821</linear>
+        <constant>0.89999997615814209</constant>
+        <quadratic>0.0010000000474974513</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>
