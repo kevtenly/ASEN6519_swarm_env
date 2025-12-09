@@ -1,0 +1,4 @@
+{
+  "actions": "TAKEOFF(Launch_A), WAYPOINT(40.0095, -105.2870), SEARCH(spiral, 55m radius), INSPECT(thermal+RGB)",
+  "reasoning": "Quadcopters will take off from Launch A and navigate to the reported GPS coordinates of Party A with a 55-meter search radius using a spiral search pattern. Thermal and RGB sensors will be used for inspection to confirm the location and condition of Party A."
+}

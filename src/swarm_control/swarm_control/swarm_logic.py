@@ -8,6 +8,21 @@ import os
 # ----------------------------
 
 PARAMS_PATH = "/home/kelvo/ros2_swarm_ws/src/swarm_control/swarm_control/params.json"
+MISSION_PATH = "/media/thanush/New Volume/ros2_swarm_ws/src/swarm_control/swarm_control/curr_commands.json"
+
+def load_json(path: str) -> Dict:
+    """Generic JSON loader, returns {} on failure."""
+    try:
+        with open(path, "r") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+def load_mission(path: str = None) -> Dict:
+    """Load LLM mission JSON (defaults to MISSION_PATH)."""
+    if path is None:
+        path = MISSION_PATH
+    return load_json(path)
 
 def load_json_params(path: str = None) -> Dict:
     """Load params.json (defaults to this package directory)."""
@@ -18,6 +33,52 @@ def load_json_params(path: str = None) -> Dict:
             return json.load(f)
     except Exception:
         return {}
+
+def parse_waypoints_from_actions(actions_str: str) -> List[List[float]]:
+    """
+    Parse WAYPOINT(lat, lon) occurrences from the LLM 'actions' string.
+
+    Example actions_str:
+        "TAKEOFF(Launch_A), WAYPOINT(40.0095, -105.2870), SEARCH(spiral, 55m radius)"
+
+    Returns:
+        [[40.0095, -105.2870], ...]
+    """
+    pattern = r'WAYPOINT\s*\(\s*([-\d\.]+)\s*,\s*([-\d\.]+)\s*\)'
+    matches = re.findall(pattern, actions_str)
+    waypoints: List[List[float]] = []
+    for lat_str, lon_str in matches:
+        try:
+            lat = float(lat_str)
+            lon = float(lon_str)
+            waypoints.append([lat, lon])
+        except ValueError:
+            # Skip malformed entries
+            continue
+    return waypoints
+
+def apply_mission_to_params(params: Dict, mission: Dict) -> Dict:
+    """
+    Update params dict using the mission JSON.
+
+    Expected mission example (from LLM):
+
+        {
+          "actions": "TAKEOFF(Launch_A), WAYPOINT(40.0095, -105.2870), SEARCH(spiral, 55m radius), INSPECT(thermal+RGB)",
+          "reasoning": "Quadcopters will take off ..."
+        }
+
+    For now, we only parse WAYPOINT(...) and store it as params["WAYPOINTS"].
+    """
+    actions_str = mission.get("actions", "")
+    if not actions_str:
+        return params
+
+    waypoints = parse_waypoints_from_actions(actions_str)
+    if waypoints:
+        params["WAYPOINTS"] = waypoints
+
+    return params
 
 # ----------------------------
 # Swarm update function
@@ -39,7 +100,11 @@ def update_swarm(positions: np.ndarray, velocities: np.ndarray,
         new_positions, new_velocities: updated arrays
     """
     # Load params
-    params = load_json_params(params_path)
+    params = load_json_params(params_path) 
+    
+    
+    mission = load_mission()
+    params = apply_mission_to_params(params,mission)
 
     # Fallback if keys missing
     W_ALIGNMENT = params.get("W_ALIGNMENT", 0.05)
@@ -48,10 +113,17 @@ def update_swarm(positions: np.ndarray, velocities: np.ndarray,
     NEIGHBOR_RADIUS = params.get("NEIGHBOR_RADIUS", 3.0)
     MIN_DIST = params.get("MIN_DIST", 2.0)
     VELOCITY_DAMPING = params.get("VELOCITY_DAMPING", 0.95)
+    
+    waypoints = params.get("WAYPOINTS",[])
+    
+    if len(waypoints) >0 :
+        leader_pos = np.array(waypoints[0],dtype=float)
+        
     N_AGENTS = positions.shape[0]
 
     new_positions = np.copy(positions)
     new_velocities = np.copy(velocities)
+    
 
     for i in range(N_AGENTS):
         diffs = positions - positions[i]
